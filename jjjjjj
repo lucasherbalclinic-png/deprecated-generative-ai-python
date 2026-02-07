@@ -1,0 +1,55 @@
+USER (Browser / App)
+       │
+       ▼
+[Enter Keyword / Click Generate]
+       │
+       ▼
+ ┌───────────────────────────┐
+ │ MASTER PLATFORM FRONTEND  │
+ │ - Show suggestions table  │
+ │ - Show wallet & balance   │
+ └─────────────┬─────────────┘
+               │ API Call
+               ▼
+┌──────────────────────────────┐
+│ MASTER PLATFORM BACKEND      │
+│ - Authenticate User          │
+│ - Validate Wallet Balance    │
+│ - Forward Keyword to AI      │
+│ - Handle Domain Registrar API│
+│ - Update DB: domains & txn   │
+└─────────────┬────────────────┘
+              │
+              ▼
+ ┌───────────────────────────────┐
+ │ AI DOMAIN GENERATION ENGINE   │
+ │ - Process keyword             │
+ │ - Suggest available domains   │
+ │ - Return list with extensions │
+ └─────────────┬─────────────────┘
+               │ Suggestions
+               ▼
+     ┌─────────────────────┐
+     │ DOMAIN REGISTRAR API │
+     │ - Check availability │
+     │ - Register domain    │
+     │ - Return status      │
+     └─────────┬───────────┘
+               │ Registration Status
+               ▼
+     ┌─────────────────────────┐
+     │ DATABASE (PostgreSQL/   │
+     │ MySQL)                  │
+     │ - domains table         │
+     │ - transactions table    │
+     │ - users table           │
+     └─────────┬──────────────┘
+               │ Update
+               ▼
+ ┌─────────────────────────────┐
+ │ FRONTEND DISPLAY / DASHBOARD │
+ │ - Update suggestions table  │
+ │ - Show updated wallet       │
+ │ - Show transaction history  │
+ │ - Show domain status        │
+ └─────────────────────────────┘
